@@ -602,7 +602,7 @@ AddEventHandler("Drugs:Server:Startup", function()
         local sid = char:GetData("SID")
         local hasIngredients = true
         for k, ingredient in ipairs(recipe.ingredients) do
-            if not exports.ox_inventory:ItemsHas(sid, 1, ingredient.item, ingredient.amount) then
+            if not exports.ox_inventory:ItemsHas(sid, ingredient.item, ingredient.amount) then
                 hasIngredients = false
                 exports['pulsar-hud']:Notification(source, "error", 
                     string.format("Missing %d %s", ingredient.amount, ingredient.item))
@@ -914,7 +914,7 @@ AddEventHandler("Drugs:Server:Startup", function()
         local requiredJars = barrel.brewData?.Drinks or 15
         
         -- Check if player has enough jars
-        if not exports.ox_inventory:ItemsHas(sid, 1, "moonshine_jar", requiredJars) then
+        if not exports.ox_inventory:ItemsHas(sid, "moonshine_jar", requiredJars) then
             exports['pulsar-hud']:Notification(source, "error",
                 string.format("Missing Empty Jars! You need %s empty jars to fill.", requiredJars))
             cb(false)

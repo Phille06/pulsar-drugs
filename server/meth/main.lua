@@ -366,7 +366,7 @@ AddEventHandler("Drugs:Server:Startup", function()
         local itms = {}
 
         local char = exports['pulsar-characters']:FetchCharacterSource(source)
-        local hasVpn = exports.ox_inventory:ItemsHas(char:GetData("SID"), 1, 'vpn', 1)
+        local hasVpn = exports.ox_inventory:ItemsHas(char:GetData("SID"), 'vpn', 1)
 
         for k, v in ipairs(_toolsForSale) do
             _toolsForSale[v.item] = _toolsForSale[v.item] or {}
